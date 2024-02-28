@@ -7,20 +7,20 @@ module generating_clock();
 
     reg clk1;      // 1 MHz clock, duty cycle = 50%
     reg clk2 = 0;  // 2 MHz clock, duty cycle = 50%
-    reg clk3;      // 1 MHz clock, duty cycle = 70% 
-	reg clk4 = 1;  // 2 MHz clock, duty cycle = 40%
+    reg clk3;      // 1 MHz clock, duty cycle = 70%
+    reg clk4 = 1;  // 2 MHz clock, duty cycle = 40%
     
     // Create stimulus
     initial begin
         clk1 = 0;
         forever begin
-			#(half_period_clk1); clk1 = ~clk1;
+		#(half_period_clk1); clk1 = ~clk1;
         end
     end
 	
     always begin
         #(half_period_clk2); clk2 = ~clk2;
-	end
+    end
   
     initial begin
         clk3 = 1;
@@ -28,12 +28,12 @@ module generating_clock();
            clk3 = 1; #(0.7); 
            clk3 = 0; #(0.3); 
         end
-	end
+    end
 	
-	always begin
+    always begin
         clk4 = clk4; #(0.2);
-		clk4 = ~clk4; #(0.8);
-	end
+	clk4 = ~clk4; #(0.8);
+    end
 	
     // This will stop the simulator after 40us
     initial begin       
