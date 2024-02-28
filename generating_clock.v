@@ -1,7 +1,7 @@
 `timescale 1us/1ns
 module generating_clock();
 	
-	// Testbench variables
+    // Testbench variables
     parameter half_period_clk1 = 0.5;
     parameter half_period_clk2 = 0.25;
 
